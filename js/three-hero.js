@@ -26,7 +26,7 @@
     renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
     var scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x050b18, 0.0016);
+    scene.fog = new THREE.FogExp2(0x060d2b, 0.0016);
 
     var camera = new THREE.PerspectiveCamera(55, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
     camera.position.set(0, 0, 26);
@@ -37,10 +37,10 @@
       c.width = c.height = 64;
       var g = c.getContext("2d");
       var grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-      grad.addColorStop(0, "rgba(255,244,214,1)");
-      grad.addColorStop(0.25, "rgba(246,196,83,0.85)");
-      grad.addColorStop(0.6, "rgba(240,180,41,0.25)");
-      grad.addColorStop(1, "rgba(240,180,41,0)");
+      grad.addColorStop(0, "rgba(255,255,255,1)");
+      grad.addColorStop(0.25, "rgba(157,180,245,0.9)");
+      grad.addColorStop(0.6, "rgba(47,85,200,0.3)");
+      grad.addColorStop(1, "rgba(47,85,200,0)");
       g.fillStyle = grad;
       g.fillRect(0, 0, 64, 64);
       return new THREE.CanvasTexture(c);
@@ -51,7 +51,7 @@
     var sphereGeo = new THREE.BufferGeometry();
     var pos = new Float32Array(DENSITY * 3);
     var col = new Float32Array(DENSITY * 3);
-    var c1 = new THREE.Color(0xf6c453), c2 = new THREE.Color(0xc9902a), c3 = new THREE.Color(0xfff3d6);
+    var c1 = new THREE.Color(0x2f55c8), c2 = new THREE.Color(0x1d3fa0), c3 = new THREE.Color(0xff7a6b);
     for (var i = 0; i < DENSITY; i++) {
       // Fibonacci sphere distribution
       var t = i / (DENSITY - 1);
@@ -76,19 +76,19 @@
     /* --- 2. Inner glowing core --- */
     var core = new THREE.Mesh(
       new THREE.SphereGeometry(2.6, 32, 32),
-      new THREE.MeshBasicMaterial({ color: 0xf0b429, transparent: true, opacity: 0.55 })
+      new THREE.MeshBasicMaterial({ color: 0xe03a2f, transparent: true, opacity: 0.6 })
     );
     scene.add(core);
     var halo = new THREE.Mesh(
       new THREE.SphereGeometry(3.6, 32, 32),
-      new THREE.MeshBasicMaterial({ color: 0xffe9ae, transparent: true, opacity: 0.12 })
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.12 })
     );
     scene.add(halo);
 
     /* --- 3. Wireframe icosahedron cage --- */
     var cage = new THREE.LineSegments(
       new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(11.5, 1)),
-      new THREE.LineBasicMaterial({ color: 0xf6c453, transparent: true, opacity: 0.16 })
+      new THREE.LineBasicMaterial({ color: 0x2f55c8, transparent: true, opacity: 0.2 })
     );
     scene.add(cage);
 
@@ -105,7 +105,7 @@
     }
     ringGeo.setAttribute("position", new THREE.BufferAttribute(rpos, 3));
     var ring = new THREE.Points(ringGeo, new THREE.PointsMaterial({
-      size: 0.22, map: sprite, color: 0xffd97a,
+      size: 0.22, map: sprite, color: 0xe8efff,
       transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending
     }));
     ring.rotation.x = 0.5;
@@ -122,7 +122,7 @@
     }
     dustGeo.setAttribute("position", new THREE.BufferAttribute(dpos, 3));
     scene.add(new THREE.Points(dustGeo, new THREE.PointsMaterial({
-      size: 0.09, map: sprite, color: 0x8fa3c8,
+      size: 0.09, map: sprite, color: 0x6d84c8,
       transparent: true, opacity: 0.4, depthWrite: false, blending: THREE.AdditiveBlending
     })));
 
