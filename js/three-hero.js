@@ -35,7 +35,7 @@
     function glowTexture() {
       var c = document.createElement("canvas");
       c.width = c.height = 64;
-      var g = c.getContext("2d");
+      var g = c.getContext("2d", { willReadFrequently: true });
       var grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
       grad.addColorStop(0, "rgba(255,255,255,1)");
       grad.addColorStop(0.25, "rgba(157,180,245,0.9)");
