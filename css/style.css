@@ -91,8 +91,8 @@ h1, h2, h3, h4 {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
   will-change: transform;
 }
-.btn--primary { background: linear-gradient(135deg, var(--c-red), var(--c-blue)); color: var(--white); box-shadow: 0 12px 30px -10px rgba(224, 58, 47, 0.55); }
-.btn--primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -10px rgba(29, 63, 160, 0.65); }
+.btn--primary, .btn--gold { background: linear-gradient(135deg, var(--c-red), var(--c-blue)); color: var(--white); box-shadow: 0 12px 30px -10px rgba(224, 58, 47, 0.55); }
+.btn--primary:hover, .btn--gold:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -10px rgba(29, 63, 160, 0.65); }
 .btn--ghost { border: 1.5px solid rgba(255, 248, 231, 0.4); color: var(--cream); backdrop-filter: blur(6px); }
 .btn--ghost:hover { border-color: var(--c-red); color: var(--c-red-soft); transform: translateY(-3px); }
 .btn--navy { background: var(--navy-900); color: var(--cream); }
@@ -317,10 +317,14 @@ h1, h2, h3, h4 {
 
 /* ---------- PTA ---------- */
 .pta-exe { margin-top: 18px; display: grid; gap: 10px; }
-.pta-exe li { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 9px; font-size: 14.5px; }
+.pta-exe li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 14px; border-bottom: 1px dashed var(--line); padding-bottom: 9px; font-size: 14.5px; }
 .pta-exe li:last-child { border-bottom: none; padding-bottom: 0; }
 .pta-exe b { color: var(--navy-900); font-weight: 600; }
 .pta-exe span { color: var(--muted); font-size: 12.5px; text-align: right; letter-spacing: 0.03em; }
+@media (max-width: 480px) {
+  .pta-exe span { text-align: left; }
+  .subj-card { padding: 24px 20px; }
+}
 .pta-list { margin-top: 18px; }
 .pta-list li { position: relative; padding: 4px 0 4px 22px; color: var(--muted); font-size: 14.5px; }
 .pta-list li::before { content: "✦"; position: absolute; left: 0; top: 8px; font-size: 11px; color: var(--c-red); }
