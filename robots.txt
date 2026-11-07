@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forcesshts.org/sitemap.xml
