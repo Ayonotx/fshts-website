@@ -1,0 +1,4 @@
+# OS junk only — the site files themselves are all tracked.
+Thumbs.db
+desktop.ini
+.DS_Store
